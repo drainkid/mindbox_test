@@ -31,6 +31,6 @@ npm run i
 
 npm run start
 
-## Запуск тесстов (e2e)
+## Запуск тестов (e2e)
 
 npm run test
