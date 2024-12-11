@@ -33,4 +33,13 @@ npm run start
 
 ## Запуск тестов (e2e)
 
-npm run test
+npm run test:cypress
+
+Скрипт сам запустит dev сервер и тесты, поэтому отдельно сервер поднимать через npm start не требуется
+
+Если нужна визуальная оболочка Cypress:
+
+Поменять в package.json 
+
+"cypress": "cypress run" на "cypress": "cypress open"
+
