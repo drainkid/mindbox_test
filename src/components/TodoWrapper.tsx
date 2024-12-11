@@ -1,4 +1,4 @@
-import {Box, Button, ButtonGroup, Container, Divider, List, ListItem, TextField} from "@mui/material";
+import {Box, Button, ButtonGroup, Container, Divider, List, ListItem, TextField, Typography} from "@mui/material";
 import {useState} from "react";
 import TodoItem from "./TodoItem.tsx";
 import {TodoProps} from "../types.tsx";
@@ -44,14 +44,16 @@ const TodoWrapper = () => {
 
     return (
         <div>
-            <Container sx ={{marginTop:8,padding:2,}} >
-                <h1 style={{textAlign:"center"}}> todos ebaniy </h1>
+            <Container>
 
-                <List sx={ListStyle} aria-label="mailbox folders">
-                    <ListItem>
+                <Typography variant="h1" sx={{textAlign:'center'}}>
+                    todos
+                </Typography>
+
+                <List sx={ListStyle} id = {'todo_list'}>
+                    <ListItem >
                         <TextField
-                            autoFocus
-                            required
+                            id= 'task_input'
                             fullWidth
                             label= 'What needs to be done?'
                             value={task}
@@ -60,32 +62,41 @@ const TodoWrapper = () => {
                             sx={{border:'white'}}
                             variant='standard'
                         />
+
                     </ListItem>
 
                     <Divider component={'li'} />
                     <TodoItem val={todo} onToggle={handleToggle} status = {selectedButton}/>
 
                     <Box component="li" sx={{textAlign: "center"}}>
-                        <ButtonGroup variant="text" sx = {{m:2}}>
+
+                        <ButtonGroup variant="text" sx = {{m:2}} id={'button_group'}>
                             <Button
                                 onClick={() => setSelectedButton('all')}
-                                variant={isSelected(selectedButton)} // Выделение выбранной кнопки
+                                variant={isSelected('all')}
+                                id = {'all_button'}
                             >
                                 All
                             </Button>
+
                             <Button
                                 onClick={() => setSelectedButton('active')}
-                                variant={isSelected(selectedButton)}
+                                variant={isSelected('active')}
+                                id = {'active_button'}
                             >
                                 Active
                             </Button>
+
                             <Button
                                 onClick={() => setSelectedButton('completed')}
-                                variant={isSelected(selectedButton)}
+                                variant={isSelected('completed')}
+                                id = {'completed_button'}
                             >
                                 Completed
                             </Button>
+
                         </ButtonGroup>
+
                     </Box>
 
                 </List>

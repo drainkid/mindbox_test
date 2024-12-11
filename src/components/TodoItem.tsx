@@ -13,10 +13,12 @@ const TodoItem = ({ val, onToggle, status }: TodoItemProps) => {
 
 
     const filteredTodos = val.filter((item) => {
-        if (status === "active") return !item.completed;
-        if (status === "completed") return item.completed;
-        return true; // Все задачи
-    });
+        switch (status) {
+            case 'active': return !item.completed;
+            case 'completed': return item.completed;
+            default: return true
+        }
+    })
 
 
     return (
@@ -31,6 +33,7 @@ const TodoItem = ({ val, onToggle, status }: TodoItemProps) => {
                         sx={{ cursor: "pointer" }}
                     >
                         <Checkbox
+                            id={'task_checkbox'}
                             color="success"
                             checked={item.completed} 
                             onChange={() => onToggle(item.id)}
@@ -43,6 +46,7 @@ const TodoItem = ({ val, onToggle, status }: TodoItemProps) => {
 
             ))}
         </>
+
     );
 };
 
