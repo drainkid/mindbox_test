@@ -25,6 +25,12 @@
 Проект доступен на GitHub Pages/Vercel/etc.
 
 
+## Запуск приложения локально
+
+npm run i
+
+npm run start
+
 ## Запуск тесстов (e2e)
 
 npm run test
