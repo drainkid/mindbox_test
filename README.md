@@ -27,7 +27,7 @@
 
 ## Запуск приложения локально
 
-npm run i
+npm i
 
 npm run start
 
